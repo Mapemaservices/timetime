@@ -44,7 +44,7 @@ export function CartDrawer({ onCheckout, isOpen, setIsOpen }: CartDrawerProps) {
           <SheetTitle>Shopping Cart ({getTotalItems()} items)</SheetTitle>
         </SheetHeader>
         
-        <div className="mt-6 flex-1">
+  <div className="mt-6 flex-1 max-h-[55vh] overflow-y-auto pr-2">
           {cartItems.length === 0 ? (
             <div className="text-center py-8">
               <ShoppingBag className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
