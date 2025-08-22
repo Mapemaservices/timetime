@@ -8,9 +8,10 @@ import { useNavigate } from "react-router-dom";
 
 interface NavigationProps {
   onCartClick?: () => void;
+  cartCount?: number;
 }
 
-export function Navigation({ onCartClick }: NavigationProps) {
+export function Navigation({ onCartClick, cartCount }: NavigationProps) {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -64,9 +65,11 @@ export function Navigation({ onCartClick }: NavigationProps) {
               aria-label="Shopping cart"
             >
               <ShoppingBag className="h-5 w-5" />
-              <span className="absolute -top-1 -right-1 bg-amber-600 text-white text-xs h-5 w-5 rounded-full flex items-center justify-center">
-                3
-              </span>
+              {typeof cartCount === 'number' && cartCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-amber-600 text-white text-xs h-5 w-5 rounded-full flex items-center justify-center">
+                  {cartCount}
+                </span>
+              )}
             </Button>
             
             <Button 
@@ -87,9 +90,11 @@ export function Navigation({ onCartClick }: NavigationProps) {
               aria-label="Shopping cart"
             >
               <ShoppingBag className="h-5 w-5" />
-              <span className="absolute -top-1 -right-1 bg-amber-600 text-white text-xs h-5 w-5 rounded-full flex items-center justify-center">
-                3
-              </span>
+              {typeof cartCount === 'number' && cartCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-amber-600 text-white text-xs h-5 w-5 rounded-full flex items-center justify-center">
+                  {cartCount}
+                </span>
+              )}
             </Button>
             
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
